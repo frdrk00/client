@@ -65,7 +65,7 @@ export const addNewItemToCart = async (user_id, data) => {
         const res = await axios.post(`${baseURL}/api/products/addToCart/${user_id}`, {...data})
         return res.data.data
     } catch (err) {
-        return console.log("hello 1");
+        return null
     }
 }
 
@@ -74,7 +74,21 @@ export const getAllCartItems = async (user_id) => {
         const res = await axios.get(`${baseURL}/api/products/getCartItems/${user_id}`)
         return res.data.data
     } catch (err) {
-        return console.log("hello 2");
+        return  null
         
     }
 }
+
+/* cart increment */
+export const increaseItemQuantity = async (user_id, productId, type) => {
+    console.log(user_id, productId, type);
+    try {
+        const res = await axios.post(`${baseURL}/api/products/updateCart/${user_id}`, null,
+        { params: { productId: productId, type: type }})
+        return res.data.data
+    } catch (err) {
+        return null
+    }
+}
+
+/* cart decrement */

@@ -1,5 +1,5 @@
 import DataTable from "./DataTable";
-import { HiCurrencyRupee } from "../assets/icons";
+import { BsCurrencyEuro } from "../assets/icons";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteProduct, getAllProducts } from "../api";
 import { setAllProducts } from "../context/actions/productAction";
@@ -51,7 +51,7 @@ const DBItems = () => {
             field: "product_price",
             render: (rowData) => (
               <p className="text-xl font-semibold text-textColor flex items-center justify-center">
-                <HiCurrencyRupee className="text-red-400" />
+                <BsCurrencyEuro className="text-red-400" />
                 {parseFloat(rowData.product_price).toFixed(2)}
               </p>
             ),

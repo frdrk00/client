@@ -1,9 +1,10 @@
 import { motion } from "framer-motion";
 import { buttonClick } from "../animations";
-import { HiCurrencyRupee, IoBasket } from "../assets/icons";
+import { BsCurrencyEuro, IoBasket } from "../assets/icons";
 import { addNewItemToCart, getAllCartItems } from "../api";
 import { useDispatch, useSelector } from "react-redux";
 import { alertNULL, alertSuccess } from "../context/actions/alertActions";
+import { setCartItems } from "../context/actions/cartActions";
 
 const SliderCard = ({ data, index }) => {
   const user = useSelector((state) => state.user);
@@ -13,7 +14,7 @@ const SliderCard = ({ data, index }) => {
     dispatch(alertSuccess("Added to the cart"));
     addNewItemToCart(user?.user_id, data).then((res) => {
       getAllCartItems(user?.user_id).then((items) => {
-        console.log(items);
+        dispatch(setCartItems(items))
       })
       setInterval(() => {
         dispatch(alertNULL());
@@ -29,7 +30,7 @@ const SliderCard = ({ data, index }) => {
           {data.product_name}
         </p>
         <p className="text-lg font-semibold text-red-500 flex items-center justify-center gap-1">
-          <HiCurrencyRupee className="text-red-500" />{" "}
+          <BsCurrencyEuro className="text-red-500" />{" "}
           {parseFloat(data.product_price).toFixed(2)}
         </p>
 

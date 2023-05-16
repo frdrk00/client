@@ -1,11 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
-import { FilterSection, Header, Home, HomeSlider } from "../components";
+import { Cart, FilterSection, Header, Home, HomeSlider } from "../components";
 import { useEffect } from "react";
 import { getAllProducts } from "../api";
 import { setAllProducts } from "../context/actions/productAction";
 
 const Main = () => {
   const products = useSelector((state) => state.products)
+  const isCart = useSelector((state) => state.isCart)
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -24,6 +25,8 @@ const Main = () => {
         <HomeSlider />
         <FilterSection />
       </div>
+
+      {isCart && <Cart />}
     </main>
   );
 };

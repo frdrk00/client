@@ -27,7 +27,7 @@ imageURL:
 product_category:
 "chinese",
 product_name:
-"chicken 65 ",
+"Tika Masala",
 product_price:
 "2.50",
     },
@@ -39,7 +39,7 @@ imageURL:
 product_category:
 "curry",
 product_name:
-"Chili corn carne",
+"Teriyaki",
 product_price:
 "10.50",
     },
@@ -72,7 +72,7 @@ imageURL:
 product_category:
 "rice",
 product_name:
-"Chicken",
+"Chicken soup",
 product_price:
 "15.20",
     },

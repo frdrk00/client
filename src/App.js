@@ -1,22 +1,21 @@
-import {Route, Routes, useNavigate} from "react-router-dom"
+import {Route, Routes} from "react-router-dom"
 import { Dashboard, Login, Main } from "./containers"
 import { getAuth } from "firebase/auth";
 import { app } from "./config/firebase.config";
 import { useEffect, useState } from "react";
-import { validateUserJWTToken } from "./api";
+import { getAllCartItems, validateUserJWTToken } from "./api";
 import { useDispatch, useSelector } from "react-redux";
 import { setUserDetails } from "./context/actions/userActions";
 import { motion } from "framer-motion"
 import { fadeInOut } from "./animations";
 import { Alert, MainLoader } from "./components";
+import { setCartItems } from "./context/actions/cartActions";
 
 const App = () => {
-  const dispatch = useDispatch()
   const firebaseAuth = getAuth(app);
-  const navigate = useNavigate();
-
   const [isLoading, setIsLoading] = useState(false)
   const alert = useSelector(state => state.alert)
+  const dispatch = useDispatch()
 
   useEffect(() => {
     setIsLoading(true)
@@ -24,6 +23,12 @@ const App = () => {
         if (cred) {
           cred.getIdToken().then((token) => {
             validateUserJWTToken(token).then((data) => {
+              if (data) {
+                getAllCartItems(data.user_id).then((items) => {
+                  console.log(items);
+                  dispatch(setCartItems(items))
+                })
+              }
               dispatch(setUserDetails(data))
             });
           });
@@ -34,7 +39,6 @@ const App = () => {
         }, 1500)
       });
   }, []);
-
 
   return (
     <div className="w-screen min-h-screen h-auto flex flex-col items-center justify-center">
