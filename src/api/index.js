@@ -11,7 +11,7 @@ export const validateUserJWTToken = async (token) => {
         })
 
         return res.data.data
-    } catch (err) {
+    } catch (error) {
         return null
     }
 }
@@ -64,7 +64,7 @@ export const addNewItemToCart = async (user_id, data) => {
     try {
         const res = await axios.post(`${baseURL}/api/products/addToCart/${user_id}`, {...data})
         return res.data.data
-    } catch (err) {
+    } catch (error) {
         return null
     }
 }
@@ -73,22 +73,42 @@ export const getAllCartItems = async (user_id) => {
     try {
         const res = await axios.get(`${baseURL}/api/products/getCartItems/${user_id}`)
         return res.data.data
-    } catch (err) {
+    } catch (error) {
         return  null
         
     }
 }
 
-/* cart increment */
+/* cart increment */ /* cart decrement */
 export const increaseItemQuantity = async (user_id, productId, type) => {
     console.log(user_id, productId, type);
     try {
         const res = await axios.post(`${baseURL}/api/products/updateCart/${user_id}`, null,
         { params: { productId: productId, type: type }})
         return res.data.data
-    } catch (err) {
+    } catch (error) {
         return null
     }
 }
 
-/* cart decrement */
+/* orders */
+export const getAllOrders = async () => {
+    try {
+        const res = await axios.get(`${baseURL}/api/products/orders/`)
+        return res.data.data
+    } catch (error) {
+        return  null
+        
+    }
+}
+
+/* update the order status */
+export const updateOrderSts = async (order_id, sts) => {
+    try {
+        const res = await axios.post(`${baseURL}/api/products/updateOrder/${order_id}`, 
+        null, { params: { sts: sts }})
+        return res.data.data
+    } catch (error) {
+        return null
+    }
+}
