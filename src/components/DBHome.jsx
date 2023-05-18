@@ -2,30 +2,50 @@ import { CChart } from "@coreui/react-chartjs";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setAllProducts } from "../context/actions/productAction";
-import { getAllProducts } from "../api";
+import { getAllOrders, getAllProducts } from "../api";
+import { setOrders } from "../context/actions/ordersAction";
 
 const DBHome = () => {
-    const products = useSelector((state) => state.products);
-    const dispatch = useDispatch();
-    
-    const drinks = products?.filter(item => item.product_category === "drinks")
-    const deserts = products?.filter(item => item.product_category === "deserts")
-    const fruits = products?.filter(item => item.product_category === "fruits")
-    const rice = products?.filter(item => item.product_category === "rice")
-    const curry = products?.filter(item => item.product_category === "curry")
-    const chinese = products?.filter(item => item.product_category === "chinese")
-    const bread = products?.filter(item => item.product_category === "bread")
-    
-    useEffect(() => {
-      if (!products) {
-        getAllProducts().then((data) => {
-          dispatch(setAllProducts(data));
-          console.log(data);
-        });
-      }
-    }, []);
+  const products = useSelector((state) => state.products);
+  const orders = useSelector((state) => state.orders);
+  const dispatch = useDispatch();
 
-  
+  const drinks = products?.filter((item) => item.product_category === "drinks");
+  const deserts = products?.filter(
+    (item) => item.product_category === "deserts"
+  );
+  const fruits = products?.filter((item) => item.product_category === "fruits");
+  const rice = products?.filter((item) => item.product_category === "rice");
+  const curry = products?.filter((item) => item.product_category === "curry");
+  const chinese = products?.filter(
+    (item) => item.product_category === "chinese"
+  );
+  const bread = products?.filter((item) => item.product_category === "bread");
+
+  const totalOrders = orders;
+  const delivered = orders?.filter((item) => item.sts === "delivered");
+  const cancelled = orders?.filter((item) => item.sts === "cancelled");
+  const preparing = orders?.filter((item) => item.sts === "preparing");
+  const paid = orders?.filter((item) => item.status === "paid");
+  const notPaid = orders?.filter((item) => item.status === "not paid");
+
+  useEffect(() => {
+    if (!products) {
+      getAllProducts().then((data) => {
+        dispatch(setAllProducts(data));
+        console.log(data);
+      });
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!orders) {
+      getAllOrders().then((data) => {
+        dispatch(setOrders(data));
+        console.log(data);
+      });
+    }
+  }, []);
 
   return (
     <div className="flex items-center justify-center flex-col pt-6 w-full h-full">
@@ -74,8 +94,9 @@ const DBHome = () => {
                   "Orders",
                   "Delivered",
                   "Cancelled",
+                  "Preparing",
                   "Paid",
-                  "Not Paid"
+                  "Not Paid",
                 ],
                 datasets: [
                   {
@@ -85,9 +106,15 @@ const DBHome = () => {
                       "#008BFF",
                       "#FFD100",
                       "#FF00FB",
+                      "#545c55",
                     ],
                     data: [
-                      
+                      totalOrders?.length,
+                      preparing?.length,
+                      cancelled?.length,
+                      delivered?.length,
+                      paid?.length,
+                      notPaid?.length,
                     ],
                   },
                 ],

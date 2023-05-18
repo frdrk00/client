@@ -73,7 +73,11 @@ const Header = () => {
           </NavLink>
         </ul>
 
-        <motion.div {...buttonClick} onClick={() => dispatch(setCartOn())} className="relative cursor-pointer">
+        <motion.div
+          {...buttonClick}
+          onClick={() => dispatch(setCartOn())}
+          className="relative cursor-pointer"
+        >
           <MdShoppingCart className="text-3xl text-textColor" />
           {cart?.length > 0 && (
             <div className="w-6 h-6 rounded-full bg-red-500 flex items-center justify-center absolute -top-4 -right-1">
@@ -105,18 +109,22 @@ const Header = () => {
                   onMouseLeave={() => setIsMenu(false)}
                   className="px-6 py-4 bg-lightOverlay backdrop-blur-md rounded-md shadow-md absolute w-48 top-12 right-0 flex flex-col gap-4"
                 >
-                  <Link
-                    className="hover:text-red-500 text-xl text-textColor"
-                    to={"/dashboard/home"}
-                  >
-                    Dashboard
-                  </Link>
+                  {user?.user_id === process.env.REACT_APP_ADMIN_DB && (
+                    <Link
+                      className="hover:text-red-500 text-xl text-textColor"
+                      to={"/dashboard/home"}
+                    >
+                      Dashboard
+                    </Link>
+                  )}
+
                   <Link
                     className="hover:text-red-500 text-xl text-textColor"
                     to={"/profile"}
                   >
                     My Profile
                   </Link>
+
                   <Link
                     className="hover:text-red-500 text-xl text-textColor"
                     to={"/user-orders"}

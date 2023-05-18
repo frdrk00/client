@@ -21,7 +21,8 @@ const FilterSection = () => {
 
     <div className="w-full overflow-x-scroll pt-6 flex items-center justify-center gap-6 py-8">
     {statuses && statuses.map((data, i) => (
-        <FilterCard 
+        <FilterCard
+            key={i} 
             data={data}
             category={category}
             setCategory={setCategory}
