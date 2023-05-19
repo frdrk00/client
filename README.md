@@ -1,70 +1,51 @@
-# Getting Started with Create React App
+> Fullstack Food Delivery Application using ReactJS
+> [Follow Us](https://github.com/frdrk00/)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![This is the Project Thumbnail](./delivery.png)
 
-## Available Scripts
+# To check the node version
 
-In the project directory, you can run:
+```
+node --version
+```
 
-### `yarn start`
+# To initialize the Firebase console
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```
+firebase init
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# To start the server
 
-### `yarn test`
+```
+npm run server
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# To create react project using npm & yarn
 
-### `yarn build`
+```
+npm create-react-app folder_name
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+yarn create react-app folder_name
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# To Start the client
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+yarn start
+```
 
-### `yarn eject`
+> Packages Used
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<!-- prettier-ignore -->
+| Name                  | Links | Description |
+| --------------------- | ----- | ----------- |
+| ReactJS               | [React](https://reactjs.org/) | React is a free and open source front-end JavaScript library for building user interfaces based on UI components. |
+| Tailwind CSS          | [Tailwind](https://tailwindcss.com/) | TailwindCSS is a framework like no other. Rather than constraining you to a set design, it gives you the tools and the standardization to build exactly what you want.
+| Firebase Functions    | [Functions](https://firebase.google.com/docs/functions) | Cloud Functions for Firebase is a serverless framework that lets you automatically run backend code in response to events triggered by Firebase features. |
+| Express               | [Express](https://expressjs.com/) | Express.js, or simply Express, is a back and web application framework for Node.js, released as free and open-source software under the MIT License. It is designed for building web application and APIs. |
+| React Router Dom      | [ReactRouterDom](https://reactrouter.com/en/main) | React Router Dom is an npm package that enables you to implement dynamic routing in a web app. It allows you to display pages and allow users to navigate them. |
+| Framer Motion         | [FramerMotion](https://framer.com/motion/) | A production-ready motion library for React. Utilize the power behind Framer, the best prototyping tool for teams. Proudly open source. |
+| React Icons           | [ReactIcons](https://react-icons.github.io/react-icons) | All Popular Icons in single package. |
