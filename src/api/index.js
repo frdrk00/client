@@ -1,6 +1,6 @@
 import axios from "axios"
 
-export const baseURL = "http://127.0.0.1:5001/food-app-frdrk00/us-central1/app"
+export const baseURL = "https://us-central1-food-app-frdrk00.cloudfunctions.net/app"
 
 export const validateUserJWTToken = async (token) => {
     try {
